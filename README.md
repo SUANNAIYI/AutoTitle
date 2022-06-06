@@ -1,8 +1,9 @@
 # AutoTitle
 此项目为2022软件杯A9赛题：智能创作平台，用于自动生成文章标题
-采用bert模型
-因为模型问题无法使用大文本进行训练，所以使用先生成摘要再通过摘要训练模型的策略。
+data为官方给出的训练数据，使用的是json数据格式，通过读取json文件把title和content分开，content用来生成摘要train.src，title用来作为train.tgt,采用bert模型进行训练
+因为模型问题无法使用大文本进行训练，所以使用先生成摘要再通过摘要训练模型的策略
 生成摘要的代码为dataprocess/dataset.py
 train.py文件为训练模型代码
 test.py文件为测试代码
+训练模型与训练数据均未给出，可到下方网址中下载roberta模型训练
 感谢920232796提供的训练代码，原文地址https://github.com/920232796/bert_seq2seq
