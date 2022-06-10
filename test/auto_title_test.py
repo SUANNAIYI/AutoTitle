@@ -3,7 +3,6 @@ import torch
 from bert_seq2seq import Tokenizer, load_chinese_base_vocab
 from bert_seq2seq import load_bert
 from rouge import Rouge
-import jieba
 
 auto_title_model = "../train/state_dict/bert_textrank_auto_title_model.bin"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -32,13 +31,13 @@ if __name__ == "__main__":
             line = line.strip()
             line = ' '.join(line)
             title.append(line)
-    print(title)
+    print('原标题：', title)
     forecast = []
     for text in test_data:
         with torch.no_grad():
             temp = bert_model.generate(text, beam_size=3)
             forecast.append(temp)
-    print(forecast)
+    print('预测标题', forecast)
     rouge = Rouge()
     for i in range(0, len(forecast)):
         rouge_score = rouge.get_scores(forecast[i], title[i])
