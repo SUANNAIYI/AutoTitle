@@ -74,8 +74,8 @@ class Trainer:
         # 加载数据
         # src_dir = './corpus/auto_title/train_all.src'
         # tgt_dir = './corpus/auto_title/train_all.tgt'
-        src_dir = './corpus/auto_title/abstract.src'
-        tgt_dir = './corpus/auto_title/train_title.tgt'
+        src_dir = './corpus/auto_title/new_abstract.src'
+        tgt_dir = './corpus/auto_title/new_title.tgt'
         self.sents_src, self.sents_tgt = read_file(src_dir, tgt_dir)
         # 判断是否有可用GPU
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

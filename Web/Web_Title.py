@@ -17,14 +17,15 @@ if __name__ == "__main__":
     bert_model.eval()
     # 加载训练的模型参数
     bert_model.load_all_params(model_path=auto_title_model, device=device)
-    with open("out-summary.txt", 'r', encoding='utf-8') as abstract:
+    test_data = []
+    with open('out-summary.txt', 'r', encoding='utf-8') as abstract:
         lines = abstract.readlines()
         for line in lines:
-            summary = line.strip()
-        print(summary)
-    for text in summary:
+            line = line.strip()
+            test_data.append(line)
+    for text in test_data:
         with torch.no_grad():
             name = bert_model.generate(text, beam_size=3)
-        print(name)
+    print('预测标题:', name)
     with open('out-title.txt', 'w', encoding='utf-8') as title:
         title.write(name)

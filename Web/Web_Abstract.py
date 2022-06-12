@@ -1,14 +1,4 @@
-# import sys
-# from imp import reload
 from textrank4zh import TextRank4Keyword, TextRank4Sentence
-
-# try:
-#     # reload方法用于对已经加载的模块进行重新加载，一般用于原模块有变化的情况
-#     reload(sys)
-#     # 设置系统的默认编码方式，仅本次有效，因为setdefaultencoding函数在被系统调用后即被删除
-#     sys.setdefaultencoding('utf-8')
-# except:
-#     pass
 
 
 def getSummary(str):
@@ -29,6 +19,7 @@ def getSummary(str):
 
 with open('put-article.txt', 'r', encoding='utf-8') as article:
     text = article.read().replace('\n', '')
+    print(text)
     summarize_text = getSummary(text)
     with open('out-summary.txt', 'w', encoding='utf-8') as abstract:
         for n in summarize_text:

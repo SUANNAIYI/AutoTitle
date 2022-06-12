@@ -1,7 +1,6 @@
 import sys
 from imp import reload
 import json
-import codecs
 from textrank4zh import TextRank4Keyword, TextRank4Sentence
 
 try:
@@ -37,7 +36,7 @@ def getSummary(str):
 f = open('../data/dev.json', encoding='utf-8')
 data = json.load(f)
 f.close()
-for i in range(0, 5000):
+for i in range(0, 1):
     item = data[i]
     with open('temp.src', 'w', encoding='utf-8') as src:
         src.write(item['content'])

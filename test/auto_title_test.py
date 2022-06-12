@@ -19,13 +19,13 @@ if __name__ == "__main__":
     # 加载训练的模型参数
     bert_model.load_all_params(model_path=auto_title_model, device=device)
     test_data = []
-    with open("../dataprocess/test_abstract.src", 'r', encoding='utf-8') as abstract:
+    with open('../dataprocess/test_abstract.src', 'r', encoding='utf-8') as abstract:
         lines = abstract.readlines()
         for line in lines:
             line = line.strip()
             test_data.append(line)
     title = []
-    with open("../dataprocess/test_title.tgt", 'r', encoding='utf-8') as name:
+    with open('../dataprocess/test_title.tgt', 'r', encoding='utf-8') as name:
         lines = name.readlines()
         for line in lines:
             line = line.strip()
