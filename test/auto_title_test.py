@@ -37,7 +37,7 @@ if __name__ == "__main__":
         with torch.no_grad():
             temp = bert_model.generate(text, beam_size=3)
             forecast.append(temp)
-    print('预测标题', forecast)
+    print('预测标题：', forecast)
     rouge = Rouge()
     for i in range(0, len(forecast)):
         rouge_score = rouge.get_scores(forecast[i], title[i])
